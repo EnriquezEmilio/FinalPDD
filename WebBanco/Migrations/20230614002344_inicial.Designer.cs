@@ -12,8 +12,8 @@ using WebBanco.Data;
 namespace WebBanco.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20230209183440_Inicial")]
-    partial class Inicial
+    [Migration("20230614002344_inicial")]
+    partial class inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\38\\Desktop\\Facultad\\FinalPDD\\WebBanco\\WebBanco\\WebBanco.csproj": {}
+    "C:\\Users\\Paula\\Documents\\GitHub\\FinalPDD\\WebBanco\\WebBanco.csproj": {}
   },
   "projects": {
-    "C:\\Users\\38\\Desktop\\Facultad\\FinalPDD\\WebBanco\\WebBanco\\WebBanco.csproj": {
+    "C:\\Users\\Paula\\Documents\\GitHub\\FinalPDD\\WebBanco\\WebBanco.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\38\\Desktop\\Facultad\\FinalPDD\\WebBanco\\WebBanco\\WebBanco.csproj",
+        "projectUniqueName": "C:\\Users\\Paula\\Documents\\GitHub\\FinalPDD\\WebBanco\\WebBanco.csproj",
         "projectName": "WebBanco",
-        "projectPath": "C:\\Users\\38\\Desktop\\Facultad\\FinalPDD\\WebBanco\\WebBanco\\WebBanco.csproj",
-        "packagesPath": "C:\\Users\\38\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\38\\Desktop\\Facultad\\FinalPDD\\WebBanco\\WebBanco\\obj\\",
+        "projectPath": "C:\\Users\\Paula\\Documents\\GitHub\\FinalPDD\\WebBanco\\WebBanco.csproj",
+        "packagesPath": "C:\\Users\\Paula\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Paula\\Documents\\GitHub\\FinalPDD\\WebBanco\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\38\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Paula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +27,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -78,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
