@@ -1,22 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Registro";
 }
-<div class="titulo-login">
-    <h1>Registrate</h1>
+<div class="titulo-login container text-center">
+    <h1 class="m-3" style="font-weight:bolder">Registrate</h1>
 </div>
-<div class="form-login">
+<div class="form-login container text-center h-100 w-50" style="background: radial-gradient(circle, rgba(238,33,47,1) 33%, rgba(252,176,69,1) 100%);
+                 border-radius : 30px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;">
+    
     <h2>Ingresá tus datos</h2>
+    <br />
     <form action="@Url.Action("Index","Registro")" method="post">
-        <input name="Dni" type="number" placeholder="Ingresar DNI" />
-        <input name="nombre" type="text" placeholder="Ingresar nombre" />
-        <input name="apellido" type="text" placeholder="Ingresar apellido" />
-        <input name="mail" type="text" placeholder="Ingresar mail" />
-        <input type="password" name="password" placeholder="Ingresar contraseña" />
+        <input class="mb-3 w-100" style=" border-radius : 8px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" name="Dni" type="number" placeholder="Ingresar DNI" />
+        <br />
+        <input class="mb-3 w-100" style=" border-radius : 8px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" name="nombre" type="text" placeholder="Ingresar nombre" />
+        <br />
+        <input class="mb-3 w-100" style=" border-radius : 8px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" name="apellido" type="text" placeholder="Ingresar apellido" />
+        <br />
+        <input class="mb-3 w-100" style=" border-radius : 8px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" name="mail" type="text" placeholder="Ingresar mail" />
+        <br />
+        <input class="mb-3 w-100" style=" border-radius : 8px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" type="password" name="password" placeholder="Ingresar contraseña" />
+        <br />
         @if (ViewBag.error != null)
         {
-            <p class="alert alert-danger">Ya existe un usuario con este DNI </p>
+            <p class="alert alert-danger" style="font-weight:bold">Ya existe un usuario con este DNI </p>
         }
-        <input type="submit" value="Registrarse">
+        <input class="mb-3 w-100" style=" font-weight:bold; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" type="submit" value="Registrarse">
     </form>
-    <a asp-controller="Login" asp-action="Index">Volver</a>
+    <a style="font-weight:bold" asp-controller="Login" asp-action="Index">Volver</a>
 </div>

@@ -13,17 +13,24 @@ namespace WebBanco.Controllers
     public class UsuarioCajasController : Controller
     {
         private readonly MyContext _context;
+        private Usuario? uLogeado;
 
-        public UsuarioCajasController(MyContext context)
+
+        public UsuarioCajasController(MyContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
+ 
         }
 
         // GET: UsuarioCajas
         public async Task<IActionResult> Index()
         {
-            var myContext = _context.UsuarioCaja.Include(u => u.caja).Include(u => u.user);
-            return View(await myContext.ToListAsync());
+            if (uLogeado == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            return View(await _context.cajas.ToListAsync());
         }
 
         // GET: UsuarioCajas/Details/5

@@ -13,17 +13,24 @@ namespace WebBanco.Controllers
     public class PlazoFijoController : Controller
     {
         private readonly MyContext _context;
+        private Usuario? uLogeado;
 
-        public PlazoFijoController(MyContext context)
+
+        public PlazoFijoController(MyContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
+                  
         }
 
         // GET: PlazoFijo
         public async Task<IActionResult> Index()
         {
-            var myContext = _context.plazoFijos.Include(p => p.user);
-            return View(await myContext.ToListAsync());
+            if (uLogeado == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            return View(await _context.cajas.ToListAsync());
         }
 
         // GET: PlazoFijo/Details/5

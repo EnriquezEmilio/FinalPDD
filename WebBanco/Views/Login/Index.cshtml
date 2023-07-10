@@ -1,16 +1,25 @@
 ﻿@{
     ViewData["Title"] = "Iniciar sesión";
 }
-
+<div class="container text-center" >
+    <br />
 <div class="titulo-login">
-    <h1>Bienvenido</h1>
+        <h1 style="font-weight:bolder">Bienvenido</h1>
 </div>
-<div class="form-login">
-    <h2>Iniciar sesión</h2>
+    <br />
+
+    <div class="container h-100  w-50" style="background: radial-gradient(circle, rgba(238,33,47,1) 33%, rgba(252,176,69,1) 100%);
+                 border-radius : 30px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;">
+        <br />
+
+        <h2 style="font-weight:bold">Iniciar sesión</h2>
     <form action="@Url.Action("Index","Login")" method="post">
-        <input name="Dni" type="number" placeholder="Ingresar DNI" />
-        <input type="password" name="password" placeholder="Ingresar contraseña" />
-        <input type="submit" value="Ingresar">
+            <br />
+            <input class="mb-2" style=" border-radius : 8px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" name="Dni" type="number" placeholder="Ingresar DNI" />
+            <br />
+            <input class="mb-2" style=" border-radius : 8px;  box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" type="password" name="password" placeholder="Ingresar contraseña" />
+            <br />
+            <input class="p-1" style="font-weight:bold; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" type="submit" value="Ingresar">
         @if (ViewBag.errorLogin != null)
         {
             @switch (ViewBag.errorLogin)
@@ -31,8 +40,12 @@
         }
 
     </form>
+        <br />
+
     <div class="d-flex justify-content-center">
-        <p>No tenés cuenta?</p>
-        <a asp-controller="Registro" asp-action="Index">Registrate</a>
+            <br />
+        <p style="font-weight:bold">No tenés cuenta?</p>
+            <a style="font-weight:bold" asp-controller="Registro" asp-action="Index">Registrate</a>
     </div>
+</div>
 </div>
