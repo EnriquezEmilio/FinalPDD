@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,15 +15,21 @@ namespace WebBanco.Controllers
     public class CajaDeAhorroController : Controller
     {
         private readonly MyContext _context;
+        private Usuario? uLogeado;
 
-        public CajaDeAhorroController(MyContext context)
+        public CajaDeAhorroController(MyContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
         }
 
         // GET: CajaDeAhorro
         public async Task<IActionResult> Index()
         {
+            if (uLogeado == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(await _context.cajas.ToListAsync());
         }
 
