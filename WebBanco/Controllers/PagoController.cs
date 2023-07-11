@@ -13,17 +13,24 @@ namespace WebBanco.Controllers
     public class PagoController : Controller
     {
         private readonly MyContext _context;
+        private Usuario? uLogeado;
 
-        public PagoController(MyContext context)
+
+        public PagoController(MyContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
+
         }
 
         // GET: Pago
         public async Task<IActionResult> Index()
         {
-            var myContext = _context.pagos.Include(p => p.user);
-            return View(await myContext.ToListAsync());
+            if (uLogeado == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            return View(await _context.pagos.ToListAsync());
         }
 
         // GET: Pago/Details/5

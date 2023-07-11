@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>CajaDeAhorro</h4>
 <hr />
@@ -13,26 +13,26 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="Cbu" class="control-label"></label>
-                <input asp-for="Cbu" class="form-control" />
+                <input asp-for="Cbu" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="Cbu" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="saldo" class="control-label"></label>
-                <input asp-for="saldo" class="form-control" />
+                <input asp-for="saldo" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="saldo" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary " style=" border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
+                <a class="btn p-1" style="color:black; font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" asp-action="Index">Volver</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

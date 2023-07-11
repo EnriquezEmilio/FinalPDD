@@ -30,7 +30,7 @@ namespace WebBanco.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            return View(await _context.cajas.ToListAsync());
+            return View(await _context.usuarios.ToListAsync());
         }
 
         // GET: Usuarios/Details/5

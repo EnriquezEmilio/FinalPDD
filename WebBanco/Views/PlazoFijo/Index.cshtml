@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Mis Plazos Fijos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a style=" text-decoration:none" asp-action="Create">Crear Nuevo Plazo Fijo</a>
 </p>
 <table class="table">
-    <thead>
+    <thead style="background-color:darkgray;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.monto)
@@ -63,3 +63,7 @@
 }
     </tbody>
 </table>
+<p>
+    <a class="p-2" style="color:black; font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" asp-controller="Main" asp-action="Index">Volver</a>
+
+</p>

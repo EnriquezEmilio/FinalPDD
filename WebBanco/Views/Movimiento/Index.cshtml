@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Mis Movimientos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a style=" text-decoration:none" asp-action="Create">Crear Nuevo Movimiento</a>
 </p>
 <table class="table">
-    <thead>
+    <thead style="background-color:darkgray;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.detalle)
@@ -43,11 +43,15 @@
                 @Html.DisplayFor(modelItem => item.caja.Cbu)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.idm">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.idm">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.idm">Delete</a>
+                    <a class="p-1" style="color:black;background-color:gold; font-weight:bold; text-decoration:none; border-radius : 12px;" asp-action="Edit" asp-route-id="@item.idm">Edit</a> |
+                    <a class="p-1" style="color:white;background-color:cornflowerblue; font-weight:bold; text-decoration:none; border-radius : 12px; " asp-action="Details" asp-route-id="@item.idm">Details</a> |
+                    <a class="p-1" style="color:white;background-color:red; font-weight:bold; text-decoration:none; border-radius : 12px; " asp-action="Delete" asp-route-id="@item.idm">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<p>
+    <a class="p-2" style="color:black; font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" asp-controller="Main" asp-action="Index">Volver</a>
+
+</p>

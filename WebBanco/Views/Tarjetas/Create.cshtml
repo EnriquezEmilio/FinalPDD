@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Crear</h1>
 
 <h4>Tarjeta</h4>
 <hr />
@@ -12,40 +12,40 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="numero" class="control-label"></label>
-                <input asp-for="numero" class="form-control" />
+                <input asp-for="numero" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="numero" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="codigoV" class="control-label"></label>
-                <input asp-for="codigoV" class="form-control" />
+                <input asp-for="codigoV" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="codigoV" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="limite" class="control-label"></label>
-                <input asp-for="limite" class="form-control" />
+                <input asp-for="limite" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="limite" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="consumos" class="control-label"></label>
-                <input asp-for="consumos" class="form-control" />
+                <input asp-for="consumos" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="consumos" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="num_usr" class="control-label"></label>
-                <select asp-for="num_usr" class ="form-control" asp-items="ViewBag.num_usr"></select>
+                <select asp-for="num_usr" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" asp-items="ViewBag.num_usr"></select>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" style="font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid blue; " />
+                <a class="btn p-2" style="color:black; font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" asp-action="Index">Volver</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

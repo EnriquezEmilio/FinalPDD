@@ -3,15 +3,19 @@
 }
 
 <div class="titulo-login">
-    <h1>Bienvenido </h1>
+    <h1 class="text-center">Bienvenido </h1>
 </div>
-<div class="mainHub">
-    <a asp-controller="CajaDeAhorro" asp-action="Index">Cajas de ahorro</a>
-    <a asp-controller="Tarjetas" asp-action="Index">Tarjetas</a>
-    <a asp-controller="PlazoFijo" asp-action="Index">Plazos fijo</a>
-    <a asp-controller="Pago" asp-action="Index">Pagos</a>
+<div class="mainHub w-100    " style="background: radial-gradient(circle, rgba(238,33,47,1) 33%, rgba(252,176,69,1) 100%);
+                 border-radius : 30px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;">
+    
+    <a class="p-4 m-4" style="text-decoration:none;font-weight:bolder;color:black" asp-controller="CajaDeAhorro" asp-action="Index">Cajas de ahorro</a>
+    <a class="p-4 m-4" style="text-decoration:none;font-weight:bolder;color:black" asp-controller="Tarjetas" asp-action="Index">Tarjetas</a>
+    <a class="p-4 m-4" style="text-decoration:none;font-weight:bolder;color:black" asp-controller="PlazoFijo" asp-action="Index">Plazos fijo</a>
+    <a class="p-4 m-4" style="text-decoration:none;font-weight:bolder;color:black" asp-controller="Pago" asp-action="Index">Pagos</a>
+    <a class="p-4 m-4" style="text-decoration:none;font-weight:bolder;color:black" asp-controller="Movimiento" asp-action="Index">Movimientos</a>
+
     @if (ViewBag.Admin == true)
     {
-        <a asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+        <a class="p-4 m-4" style="text-decoration:none ;font-weight:bolder;color:black" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
     }
 </div>

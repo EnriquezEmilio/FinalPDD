@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Crear</h1>
 
 <h4>Usuario</h4>
 <hr />
@@ -12,56 +12,57 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group  mb-1">
                 <label asp-for="dni" class="control-label"></label>
-                <input asp-for="dni" class="form-control" />
+                <input asp-for="dni" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="dni" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group  mb-1">
                 <label asp-for="nombre" class="control-label"></label>
-                <input asp-for="nombre" class="form-control" />
+                <input asp-for="nombre" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="nombre" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group  mb-1">
                 <label asp-for="apellido" class="control-label"></label>
-                <input asp-for="apellido" class="form-control" />
+                <input asp-for="apellido" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="apellido" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group  mb-1">
                 <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" />
+                <input asp-for="email" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group  mb-1">
                 <label asp-for="password" class="control-label"></label>
-                <input asp-for="password" class="form-control" />
+                <input asp-for="password" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group  mb-1">
                 <label asp-for="intentosFallidos" class="control-label"></label>
-                <input asp-for="intentosFallidos" class="form-control" />
+                <input asp-for="intentosFallidos" class="form-control" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" />
                 <span asp-validation-for="intentosFallidos" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="bloqueado" /> @Html.DisplayNameFor(model => model.bloqueado)
+                    <input class="form-check-input" asp-for="bloqueado" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" /> @Html.DisplayNameFor(model => model.bloqueado)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="esADM" /> @Html.DisplayNameFor(model => model.esADM)
+                    <input class="form-check-input" asp-for="esADM" style="box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" /> @Html.DisplayNameFor(model => model.esADM)
                 </label>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" style="font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid blue; " />
+                <a class="btn p-2" style="color:black; font-weight:bold; text-decoration:none; border-radius : 12px; box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);border: solid;" asp-action="Index">Volver</a>
+
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
