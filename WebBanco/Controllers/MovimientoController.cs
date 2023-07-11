@@ -53,19 +53,9 @@ namespace WebBanco.Controllers
         }
 
         // GET: Movimiento/Create
-        /* public IActionResult Create()
-         {
-             ViewData["id"] = new SelectList(_context.cajas, "id", "Cbu");
-             return View();
-         }
-        */
         public IActionResult Create()
         {
-            var cajasConMovimientos = _context.cajas
-                .Where(c => c.misMovimientos.Any())
-                .ToList();
-
-            ViewData["id"] = new SelectList(cajasConMovimientos, "id", "Cbu");
+            ViewData["id"] = new SelectList(_context.cajas, "id", "Cbu");
             return View();
         }
 
