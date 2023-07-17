@@ -1,6 +1,7 @@
 ﻿
 using WebBanco.Data;
 using WebBanco.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,9 @@ namespace WebBanco.Controllers
     public class LoginController : Controller
     {
         private readonly MyContext _context;
-        private Usuario uLogeado;
+        private Usuario? uLogeado;
 
-        public LoginController(MyContext contexto)
+        public LoginController(MyContext contexto, IHttpContextAccessor httpContextAccessor)
         {
             _context = contexto;
             _context.usuarios
@@ -26,12 +27,13 @@ namespace WebBanco.Controllers
                     .Load();
             _context.cajas
                 .Include(c => c.misMovimientos)
-                
+                .Include(c => c.UserCaja)
                 .Load();
             _context.tarjetas.Load();
             _context.pagos.Load();
             _context.movimientos.Load();
             _context.plazoFijos.Load();
+            uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
 
         }
         public IActionResult Index()
@@ -59,7 +61,7 @@ namespace WebBanco.Controllers
                     if (usuario.intentosFallidos == 3)
                     {
                         usuario.bloqueado = true;
-                        _context.Update(uLogeado);
+                        _context.Update(usuario);
                         _context.SaveChanges();
                         ViewBag.errorLogin = 3;
                     }
@@ -67,7 +69,7 @@ namespace WebBanco.Controllers
                     {
                         ViewBag.errorLogin = 2;
                         usuario.intentosFallidos++;
-                        _context.Update(uLogeado);
+                        _context.Update(usuario);
                         _context.SaveChanges();
                     }
                     return View();

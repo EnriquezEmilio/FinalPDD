@@ -20,9 +20,23 @@ namespace WebBanco.Controllers
         public CajaDeAhorroController(MyContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _context.usuarios
+                    .Include(u => u.misTarjetas)
+                    .Include(u => u.Caja)
+                    .Include(u => u.misPlazosFijos)
+                    .Include(u => u.misPagos)
+                    .Load();
+            _context.cajas
+                .Include(c => c.misMovimientos)
+                .Include(c => c.UserCaja)
+                .Load();
+            _context.tarjetas.Load();
+            _context.pagos.Load();
+            _context.movimientos.Load();
+            _context.plazoFijos.Load();
             uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
         }
-
+       
         // GET: CajaDeAhorro
         public async Task<IActionResult> Index()
         {
@@ -30,7 +44,18 @@ namespace WebBanco.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            return View(await _context.cajas.ToListAsync());
+            if (uLogeado.esADM)
+            {
+                ViewBag.Admin = true;
+                ViewBag.Nombre = "Administrador: " + uLogeado.nombre + " " + uLogeado.apellido;
+                return View(_context.cajas.ToList());
+            }
+            else
+            {
+                ViewBag.Admin = false;
+                ViewBag.Nombre = uLogeado.nombre + " " + uLogeado.apellido;
+                return View(uLogeado.Caja.ToList());
+            }
         }
 
         // GET: CajaDeAhorro/Details/5

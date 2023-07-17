@@ -23,25 +23,47 @@ namespace Final.Controllers
                     .Load();
             _context.cajas
                 .Include(c => c.misMovimientos)
+                 .Include(c => c.UserCaja)
                 .Load();
             _context.tarjetas.Load();
             _context.pagos.Load();
             _context.movimientos.Load();
             _context.plazoFijos.Load();
-            uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
+            uLogeado = _context.usuarios.FirstOrDefault(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId"));
         }
         // GET: MainController
+
         public ActionResult Index()
         {
             if (uLogeado == null)
             {
                 return RedirectToAction("Index", "Login");
             }
-            if (uLogeado.esADM)
+
+            // Obtén el número de usuario del usuario autenticado
+            int userNum = uLogeado.num_usr;
+
+            var usuario = _context.usuarios
+                .Include(u => u.Caja)
+                .Include(u => u.misTarjetas)
+                .Include(u => u.misPagos)
+                .Include(u => u.misPlazosFijos)
+                .FirstOrDefault(u => u.num_usr == userNum);
+
+            if (usuario == null)
+            {
+                // Maneja el caso en el que no se encuentre el usuario autenticado
+                return RedirectToAction("Index", "Login");
+            }
+
+            if (usuario.esADM)
             {
                 ViewBag.Admin = true;
             }
-            return View();
+
+            return View(usuario);
         }
+
+
     }
 }
