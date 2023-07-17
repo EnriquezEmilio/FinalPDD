@@ -13,6 +13,9 @@
     <thead style="background-color:darkgray;">
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.num_usr)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.dni)
             </th>
             <th>
@@ -42,6 +45,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+             <th>
+                @Html.DisplayFor(modelItem => item.num_usr)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.dni)
             </td>

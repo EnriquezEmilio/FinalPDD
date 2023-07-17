@@ -19,6 +19,18 @@ namespace WebBanco.Controllers
         public PagoController(MyContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _context.usuarios
+                    .Include(u => u.misTarjetas)
+                    .Include(u => u.Caja)
+                    .Include(u => u.misPlazosFijos)
+                    .Include(u => u.misPagos)
+                    .Load();
+            _context.cajas
+                .Include(c => c.misMovimientos)
+                .Include(c => c.UserCaja)
+                .Load();
+            _context.pagos.Load();
+            _context.tarjetas.Load();
             uLogeado = _context.usuarios.Where(u => u.num_usr == httpContextAccessor.HttpContext.Session.GetInt32("UserId")).FirstOrDefault();
 
         }
