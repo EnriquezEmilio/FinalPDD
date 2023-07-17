@@ -27,9 +27,9 @@ namespace WebBanco.Controllers
                     .Include(u => u.misPagos)
                     .Load();
             _context.cajas
-                .Include(c => c.misMovimientos)
-                .Include(c => c.UserCaja)
-                .Load();
+                   .Include(c => c.misMovimientos)
+                   .Include(c => c.UserCaja)
+                   .Load();
             _context.tarjetas.Load();
             _context.pagos.Load();
             _context.movimientos.Load();
@@ -40,6 +40,7 @@ namespace WebBanco.Controllers
         // GET: CajaDeAhorro
         public async Task<IActionResult> Index()
         {
+
             if (uLogeado == null)
             {
                 return RedirectToAction("Index", "Login");
